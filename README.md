@@ -49,10 +49,10 @@ if err != nil {
     panic(err)
 }
 
-images := dense.NewImageDenses(train.Images, 1, 1000) // convert images data to a slice of gonum matrices with dimension 1x1000
+images := dense.NewImageDenses(train.Images, 1, loader.ImageWidth*loader.ImageHeight) // convert images data to a slice of gonum matrices with dimension 1x784
 labels := dense.NewLabelVecDense(train.Labels)
 
-normalizedImages := dense.NewNormalizedImageDenses(train.Images, 1, 1000, 255) // convert images data to a slice of gonum matrices with dimension 1x1000. Devide all element by 255
+normalizedImages := dense.NewNormalizedImageDenses(train.Images, 1, loader.ImageWidth*loader.ImageHeight, 255) // convert images data to a slice of gonum matrices with dimension 1x784. Devide all element by 255
 
 ....
 ```
